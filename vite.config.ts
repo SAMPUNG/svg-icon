@@ -8,7 +8,7 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     chunkSizeWarningLimit: 500,
     cssCodeSplit: true,
-    emptyOutDir: true,
+    emptyOutDir: false,
     lib: {
       entry: './index.ts',
       fileName: 'index',
@@ -17,7 +17,7 @@ export default defineConfig({
     },
     manifest: false,
     minify: 'esbuild',
-    outDir: './dist',
+    outDir: './',
     reportCompressedSize: true,
     sourcemap: false,
     target: 'es2015',

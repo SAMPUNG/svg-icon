@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Built Files
+index.cjs
+index.js
+
 # Lock
 package-lock.json
 yarn.lock
