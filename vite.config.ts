@@ -23,5 +23,8 @@ export default defineConfig({
     target: 'es2015',
     write: true,
   },
+  esbuild: {
+    drop: ['console', 'debugger']
+  },
   publicDir: false,
 })
