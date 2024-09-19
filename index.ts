@@ -6,10 +6,16 @@ svg.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
 
 document.body.appendChild(svg)
 
-function getUrl(fullname: string) {
+type Loader = (name: string) => string
+
+let cast2url = (fullname: string) => {
   const [dir, name] = fullname.split(':')
-  const url = new URL(`../../svg/${dir}/${name}.svg?url`, import.meta.url).href
+  const url = `/svg/${dir}/${name}.svg?url`
   return url
+}
+
+export function defineLoader(loader: Loader) {
+  cast2url = loader
 }
 
 export async function registerSymbol(name: string) {
@@ -25,7 +31,7 @@ export async function registerSymbol(name: string) {
   symbol.setAttribute('viewBox', '0 0 1024 1024')
   svg.appendChild(symbol)
 
-  const url = getUrl(name)
+  const url = cast2url(name)
   const response = await fetch(url)
   const text = await response.text()
   console.info('[svg] scan name ===>', name)
