@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "files": [
-    "dist",
-    "types"
+    "index.cjs",
+    "index.d.ts",
+    "index.js"
   ],
   "main": "./index.js",
   "types": "./index.d.ts",
