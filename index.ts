@@ -39,8 +39,9 @@ export async function registerSymbol(name: string) {
 }
 
 function scanPath(text: string) {
+  const quoted = text.replace(/'/g, '"')
   //! 取出 <svg>...</svg> 中间的元素
-  const elements = text.replace(/.+<svg( [^>]+="[^>]+")+>(.+)<\/svg>/, '$2')
+  const elements = quoted.replace(/.+<svg( [^>]+="[^>]+")+>(.+)<\/svg>/, '$2')
   //! 剔除无用的 p-id 及 fill 颜色
   const slimed = elements.replace(/ (p-id|fill)="#*[A-Za-z0-9]+"/g, '')
   //! <path key="value"></path><path key="value" />
